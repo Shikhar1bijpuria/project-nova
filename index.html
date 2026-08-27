@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#fff8fa">
 <title>One Very Important Question 🌸</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,8 +168,8 @@ section{min-height:100vh;position:relative;display:flex;align-items:center;justi
     box-shadow: 0 15px 35px rgba(57,39,45,.2);
 }
 .intro-warning {
-    margin-top: 20px;
-    font-size: 18px;
+    margin-top: 18px;
+    font-size: 12px;
     opacity: .58;
 }
 .main-website {
@@ -210,6 +211,624 @@ section{min-height:100vh;position:relative;display:flex;align-items:center;justi
     }
 }
 
+
+/* =========================================================
+   NOVA PASSCODE GATE
+========================================================= */
+.passcode-box{max-width:420px;margin:24px auto 0}
+.passcode-row{display:flex;gap:10px;align-items:stretch}
+.passcode-input{flex:1;min-width:0;padding:15px 17px;border:1px solid rgba(57,39,45,.18);border-radius:16px;background:rgba(255,255,255,.88);color:#39272d;font:inherit;font-size:16px;outline:none;text-align:center;letter-spacing:1px}
+.passcode-input:focus{border-color:rgba(57,39,45,.48);box-shadow:0 0 0 4px rgba(57,39,45,.08)}
+.passcode-eye{width:50px;border:0;border-radius:16px;background:rgba(255,255,255,.88);cursor:pointer;font-size:18px}
+.passcode-error{min-height:24px;margin-top:12px;font-size:13px;font-weight:700;color:#7f2f49}
+.passcode-hint{margin-top:8px;font-size:11px;opacity:.5}
+@media(max-width:520px){.passcode-row{gap:8px}.passcode-input{padding:14px 13px}}
+
+
+/* =========================================================
+   MOBILE / TABLET RESPONSIVE FIXES
+========================================================= */
+
+img, video {
+    max-width: 100%;
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+}
+
+.container,
+.hero-content,
+.japan-content {
+    min-width: 0;
+}
+
+@media (max-width: 900px) {
+    section {
+        padding: 82px 5%;
+    }
+
+    .animal img {
+        width: 100px;
+    }
+
+    .animal-small img {
+        width: 78px;
+    }
+
+    .speech {
+        max-width: 180px;
+        font-size: 12px;
+        padding: 10px 13px;
+    }
+
+    .hero-nova {
+        left: 2%;
+        bottom: 4%;
+    }
+
+    .hero-cat {
+        right: 2%;
+        bottom: 4%;
+    }
+
+    .hero-nova-speech {
+        left: 2%;
+        bottom: 18%;
+    }
+
+    .hero-cat-speech {
+        right: 2%;
+        bottom: 18%;
+    }
+}
+
+@media (max-width: 700px) {
+
+    section {
+        min-height: auto;
+        padding: 72px 18px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .section-label {
+        font-size: 10px;
+        letter-spacing: 2.2px;
+        line-height: 1.5;
+    }
+
+    .section-title {
+        font-size: clamp(2.1rem, 10vw, 3.2rem);
+        line-height: 1.05;
+        margin-bottom: 18px;
+    }
+
+    .description {
+        font-size: 16px;
+        line-height: 1.65;
+        padding: 0 2px;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 320px;
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 100vh;
+        min-height: 100svh;
+        background-position: center center;
+        padding-top: 95px;
+        padding-bottom: 125px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3rem, 15vw, 4.8rem);
+        line-height: .95;
+        margin-bottom: 22px;
+    }
+
+    .hero-text {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .hero-nova,
+    .hero-cat {
+        bottom: 18px;
+    }
+
+    .hero-nova {
+        left: 12px;
+    }
+
+    .hero-cat {
+        right: 12px;
+    }
+
+    .hero-nova img,
+    .hero-cat img {
+        width: 72px;
+    }
+
+    .hero-nova-speech,
+    .hero-cat-speech {
+        bottom: 88px;
+        max-width: 135px;
+        font-size: 10px;
+        padding: 8px 10px;
+        line-height: 1.35;
+    }
+
+    .hero-nova-speech {
+        left: 8px;
+    }
+
+    .hero-cat-speech {
+        right: 8px;
+    }
+
+    /* INTRO / PASSCODE */
+    .intro-screen {
+        overflow-y: auto;
+        align-items: flex-start;
+        padding: 34px 18px;
+    }
+
+    .intro-content {
+        margin: auto;
+        padding: 12px 0 24px;
+    }
+
+    .intro-nova-image img {
+        width: 105px;
+        max-width: 36vw;
+    }
+
+    .intro-small {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        line-height: 1.5;
+        margin-bottom: 14px;
+    }
+
+    .intro-content h1 {
+        font-size: clamp(2.8rem, 15vw, 4.2rem);
+        margin-bottom: 18px;
+    }
+
+    .intro-message {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .passcode-box {
+        margin-top: 20px;
+    }
+
+    .passcode-row {
+        gap: 8px;
+    }
+
+    .passcode-input {
+        width: 100%;
+        font-size: 16px;
+        padding: 14px 13px;
+    }
+
+    .passcode-eye {
+        width: 48px;
+        min-width: 48px;
+    }
+
+    .intro-button {
+        width: 100%;
+        margin-top: 18px;
+        padding: 15px 18px;
+    }
+
+    .intro-warning {
+        line-height: 1.5;
+        margin-top: 14px;
+    }
+
+    /* NOVA INTRO */
+    .nova-card {
+        margin-top: 28px;
+        padding: 26px 20px;
+        border-radius: 22px;
+    }
+
+    .nova-card h3 {
+        font-size: 27px;
+    }
+
+    .nova-card p {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .nova-intro .animal {
+        right: 8px !important;
+        bottom: 10px !important;
+        opacity: .92;
+    }
+
+    .nova-intro .animal img {
+        width: 74px;
+    }
+
+    /* STORY */
+    .timeline {
+        margin-top: 34px;
+        gap: 16px;
+    }
+
+    .timeline-card {
+        padding: 22px 18px;
+        border-radius: 20px;
+    }
+
+    .timeline-card h3 {
+        font-size: 24px;
+        line-height: 1.15;
+    }
+
+    .timeline-card p {
+        font-size: 15px;
+        line-height: 1.7;
+        white-space: normal;
+    }
+
+    .timeline-number {
+        font-size: 10px;
+        letter-spacing: 1.8px;
+        line-height: 1.5;
+    }
+
+    .pet-dialogue {
+        margin-top: 18px;
+        gap: 8px;
+    }
+
+    .pet-line {
+        max-width: 92%;
+        font-size: 13px;
+        padding: 9px 12px;
+    }
+
+    .story > .animal {
+        top: 6px !important;
+        right: 4px !important;
+        opacity: .75;
+    }
+
+    /* SCIENCE */
+    .stats {
+        grid-template-columns: 1fr;
+        margin-top: 34px;
+        gap: 14px;
+    }
+
+    .stat {
+        padding: 22px 18px;
+        border-radius: 20px;
+    }
+
+    .stat-number {
+        font-size: 40px;
+    }
+
+    .science .animal {
+        opacity: .85;
+    }
+
+    .science .animal[style*="right:5%"] {
+        right: 5px !important;
+        top: 5px !important;
+    }
+
+    .science .animal[style*="left:5%"] {
+        left: 5px !important;
+        bottom: 8px !important;
+    }
+
+    .science .speech {
+        display: none;
+    }
+
+    .meter {
+        margin-top: 30px;
+    }
+
+    .meter-label {
+        font-size: 13px;
+        gap: 12px;
+    }
+
+    /* GALLERY */
+    .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 32px;
+    }
+
+    .photo,
+    .photo.big {
+        grid-column: auto;
+        grid-row: auto;
+        aspect-ratio: 4 / 5;
+        border-radius: 18px;
+    }
+
+    .caption {
+        left: 9px;
+        right: 9px;
+        bottom: 9px;
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .gallery > .animal {
+        display: none;
+    }
+
+    /* VIDEO */
+    .video-section {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .video-wrapper {
+        margin-top: 28px;
+        border-radius: 18px;
+        width: 100%;
+    }
+
+    .video-section > .animal,
+    .video-section > .speech {
+        display: none;
+    }
+
+    /* JAPAN */
+    .japan {
+        min-height: 100vh;
+        min-height: 100svh;
+        background-position: center;
+        padding-top: 90px;
+        padding-bottom: 120px;
+    }
+
+    .japan h2 {
+        font-size: clamp(3rem, 15vw, 4.6rem);
+        margin-bottom: 22px;
+    }
+
+    .japan p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin-bottom: 14px;
+    }
+
+    .japan .nova-run img,
+    .japan .cat-walk img {
+        width: 72px;
+    }
+
+    /* BUCKET LIST */
+    .bucket-list {
+        margin-top: 30px;
+        gap: 10px;
+    }
+
+    .bucket-item {
+        padding: 15px 16px;
+        font-size: 15px;
+        line-height: 1.5;
+        border-radius: 15px;
+    }
+
+    .bucket > .animal {
+        right: 5px !important;
+        bottom: 5px !important;
+        opacity: .75;
+    }
+
+    /* LETTER */
+    .letter-box {
+        margin-top: 28px;
+        padding: 25px 18px;
+        border-radius: 20px;
+    }
+
+    .letter-box p,
+    .letter-box {
+        font-size: 17px;
+        line-height: 1.75;
+    }
+
+    .letter > .animal {
+        right: 6px !important;
+        bottom: 6px !important;
+        opacity: .7;
+    }
+
+    /* BEFORE PROPOSAL */
+    .before-proposal {
+        min-height: 70vh;
+        padding-bottom: 120px;
+    }
+
+    .before-proposal h2 {
+        font-size: clamp(2.7rem, 13vw, 4.3rem);
+        line-height: 1;
+    }
+
+    .before-proposal .nova-run img {
+        width: 78px;
+    }
+
+    /* PROPOSAL */
+    .proposal {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding-top: 80px;
+        padding-bottom: 145px;
+    }
+
+    .ring {
+        font-size: 66px;
+    }
+
+    .proposal h2 {
+        font-size: clamp(3.1rem, 15vw, 5rem);
+        line-height: .98;
+        margin-bottom: 20px;
+    }
+
+    .proposal-buttons {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 26px;
+        gap: 10px;
+    }
+
+    .proposal .animal {
+        bottom: 18px !important;
+    }
+
+    .proposal .animal img {
+        width: 74px;
+    }
+
+    .proposal .speech {
+        bottom: 92px !important;
+        max-width: 130px;
+        font-size: 10px;
+        padding: 8px 10px;
+    }
+
+    .proposal .speech[style*="right:5%"] {
+        right: 5px !important;
+    }
+
+    .proposal .speech[style*="left:5%"] {
+        left: 5px !important;
+    }
+
+    .wait-message {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    /* FINAL */
+    .final {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .final h2 {
+        font-size: clamp(3rem, 14vw, 4.8rem);
+        line-height: 1;
+    }
+
+    .final p {
+        font-size: 17px;
+    }
+
+    .final-animals {
+        gap: 14px;
+    }
+
+    .final-animals img {
+        width: 82px;
+    }
+
+    .final-animals > div[style] {
+        font-size: 44px !important;
+    }
+
+    /* MUSIC BUTTON */
+    .music-toggle {
+        right: 12px;
+        bottom: 12px;
+        width: 46px;
+        height: 46px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 380px) {
+    section {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .hero h1 {
+        font-size: 2.85rem;
+    }
+
+    .intro-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-nova-speech,
+    .hero-cat-speech,
+    .proposal .speech {
+        max-width: 115px;
+        font-size: 9px;
+    }
+
+    .timeline-card {
+        padding: 20px 15px;
+    }
+
+    .letter-box {
+        padding: 22px 15px;
+    }
+
+    .final-animals img {
+        width: 72px;
+    }
+}
+
+/* Keep motion comfortable for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+@supports (padding: max(0px)) {
+    .music-toggle {
+        right: max(12px, env(safe-area-inset-right));
+        bottom: max(12px, env(safe-area-inset-bottom));
+    }
+    .intro-screen {
+        padding-top: max(24px, env(safe-area-inset-top));
+        padding-right: max(18px, env(safe-area-inset-right));
+        padding-bottom: max(24px, env(safe-area-inset-bottom));
+        padding-left: max(18px, env(safe-area-inset-left));
+    }
+}
+
 </style>
 </head>
 <body>
@@ -226,15 +845,26 @@ section{min-height:100vh;position:relative;display:flex;align-items:center;justi
     <p class="intro-small">Detected a very important visitor...</p>
     <h1>Apoorva? 👀</h1>
     <p class="intro-message">
-      This page contains something suspicious.
+      Before I let you in, I needs to verify that you're actually Apoorva.
+      Very serious security. Extremely professional. 🐾
     </p>
-    <button id="startWebsite" class="intro-button" type="button">
-      Fine, let me in 🙄
-    </button>
-    <div class="intro-nova-image">
-      <img src="animals/volume.png" alt="Nova">
+
+    <div class="passcode-box">
+      <div class="passcode-row">
+        <input id="passcodeInput" class="passcode-input" type="password"
+          autocomplete="off" placeholder="Enter the secret word..." aria-label="Secret passcode">
+        <button id="togglePasscode" class="passcode-eye" type="button"
+          aria-label="Show passcode" title="Show passcode">👀</button>
+      </div>
+
+      <div id="passcodeError" class="passcode-error" aria-live="polite"></div>
+
+      <button id="startWebsite" class="intro-button" type="button">
+        Shikhar, let me in 🐾
+      </button>
+
+      <p class="intro-warning">🔊 Keep your volume on after I approve you</p>
     </div>
-    <p class="intro-warning">🔊 Turn on volume</p>
   </div>
 </div>
 
@@ -645,17 +1275,64 @@ const mainWebsite = document.getElementById("mainWebsite");
 const startWebsite = document.getElementById("startWebsite");
 const backgroundMusic = document.getElementById("backgroundMusic");
 const musicToggle = document.getElementById("musicToggle");
+const passcodeInput = document.getElementById("passcodeInput");
+const passcodeError = document.getElementById("passcodeError");
+const togglePasscode = document.getElementById("togglePasscode");
+
+/* Default secret word: puchchu */
+const SECRET_HASH = "8aa8ab47e69edba83785e436e7a196adac1be7bebd264a517d8040be9d957a07";
 
 let websiteStarted = false;
+let wrongAttempts = 0;
 
-startWebsite.addEventListener("click", async () => {
+async function sha256(value) {
+  const data = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(digest))
+    .map(byte => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+async function unlockWebsite() {
   if (websiteStarted) return;
+
+  const entered = passcodeInput.value.trim();
+
+  if (!entered) {
+    passcodeError.textContent = "Nova: Umm... you forgot to type the secret word. 👀";
+    passcodeInput.focus();
+    return;
+  }
+
+  startWebsite.disabled = true;
+  startWebsite.textContent = "Nova is checking... 🐾";
+
+  const enteredHash = await sha256(entered);
+
+  if (enteredHash !== SECRET_HASH) {
+    wrongAttempts++;
+    const funnyErrors = [
+      "Nova: Suspicious. Very suspicious. 🐾",
+      "Cat: That's not it. Nova, do your job. 😼",
+      "Nova: Access denied. Try being more Puchchu. 👀",
+      "Cat: At this point, I'm questioning your identity. 😹"
+    ];
+    passcodeError.textContent =
+      funnyErrors[Math.min(wrongAttempts - 1, funnyErrors.length - 1)];
+
+    passcodeInput.value = "";
+    passcodeInput.focus();
+    startWebsite.disabled = false;
+    startWebsite.textContent = "Nova, let me in 🐾";
+    return;
+  }
+
   websiteStarted = true;
+  passcodeError.textContent = "Nova: Identity confirmed. That's definitely Puchchu. ❤️";
+  startWebsite.textContent = "Approved! ❤️";
 
   mainWebsite.classList.add("started");
-  introScreen.classList.add("hide");
   musicToggle.classList.add("show");
-
   backgroundMusic.volume = 0.35;
 
   try {
@@ -671,8 +1348,24 @@ startWebsite.addEventListener("click", async () => {
   }
 
   setTimeout(() => {
+    introScreen.classList.add("hide");
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, 150);
+  }, 700);
+}
+
+startWebsite.addEventListener("click", unlockWebsite);
+
+passcodeInput.addEventListener("keydown", event => {
+  if (event.key === "Enter") unlockWebsite();
+});
+
+togglePasscode.addEventListener("click", () => {
+  const showing = passcodeInput.type === "text";
+  passcodeInput.type = showing ? "password" : "text";
+  togglePasscode.textContent = showing ? "👀" : "🙈";
+  togglePasscode.setAttribute("aria-label", showing ? "Show passcode" : "Hide passcode");
+  togglePasscode.title = showing ? "Show passcode" : "Hide passcode";
+  passcodeInput.focus();
 });
 
 musicToggle.addEventListener("click", async () => {
