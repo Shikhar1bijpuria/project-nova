@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Very Important Question 🌸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:#fff8fa;color:#39272d;overflow-x:hidden}
+h1,h2,h3{font-family:"Playfair Display",serif}
+section{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;padding:96px 7%;overflow:hidden}
+.container{width:100%;max-width:1100px;margin:auto;position:relative;z-index:5;text-align:center}
+.section-label{font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;opacity:.55;margin-bottom:15px}
+.section-title{font-size:clamp(2.7rem,6vw,5rem);line-height:1.05;margin-bottom:25px}
+.description{max-width:720px;margin:auto;font-size:18px;line-height:1.8}
+.button{border:0;padding:16px 30px;border-radius:999px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;transition:.25s}
+.button:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(57,39,45,.18)}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.petal{position:fixed;top:-40px;pointer-events:none;z-index:999;animation:fallPetal linear forwards}
+@keyframes fallPetal{0%{opacity:0;transform:translateY(-30px) translateX(0) rotate(0)}10%{opacity:.85}100%{opacity:0;transform:translateY(110vh) translateX(120px) rotate(420deg)}}
+.animal{position:absolute;z-index:15;pointer-events:none}
+.animal img{display:block;width:135px;height:auto;object-fit:contain}
+.animal-small img{width:105px}
+.float img{animation:floatingAnimal 3s ease-in-out infinite}
+@keyframes floatingAnimal{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+.bounce img{animation:novaBounce 1.2s ease-in-out infinite}
+@keyframes novaBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+.sleep img{animation:sleepingAnimal 3s ease-in-out infinite}
+@keyframes sleepingAnimal{0%,100%{transform:scale(1)}50%{transform:scale(.97)}}
+.peek-right{right:-20px}.peek-right img{animation:peekRight 6s ease-in-out infinite}
+@keyframes peekRight{0%,10%{transform:translateX(140px)}25%,70%{transform:translateX(0)}90%,100%{transform:translateX(140px)}}
+.nova-run{left:-180px}.nova-run img{animation:novaRun 11s linear infinite}
+@keyframes novaRun{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 360px))}}
+.cat-walk{right:-180px}.cat-walk img{animation:catWalk 13s linear infinite}
+@keyframes catWalk{from{transform:translateX(0) scaleX(-1)}to{transform:translateX(calc(-100vw - 360px)) scaleX(-1)}}
+.celebrate img{animation:celebrationBounce .7s ease-in-out infinite}
+@keyframes celebrationBounce{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-25px) rotate(7deg)}}
+.speech{position:absolute;z-index:25;max-width:220px;padding:13px 17px;background:rgba(255,255,255,.96);border-radius:18px 18px 18px 5px;box-shadow:0 12px 30px rgba(50,25,35,.12);font-size:14px;line-height:1.4;font-weight:600}
+.speech strong{display:block;margin-bottom:2px}
+.hero{background:linear-gradient(rgba(255,225,235,.55),rgba(255,248,250,.95)),url("photos/hero.jpg") center/cover}
+.hero-content{max-width:800px}.hero h1{font-size:clamp(4rem,10vw,8rem);line-height:.9;margin-bottom:30px}
+.hero-text{max-width:670px;margin:auto;font-size:20px;line-height:1.8}.start-button{margin-top:35px;background:#39272d;color:#fff}
+.hero-nova{left:5%;bottom:8%}.hero-cat{right:5%;bottom:9%}.hero-nova-speech{left:6%;bottom:28%}.hero-cat-speech{right:5%;bottom:29%}
+.nova-intro{background:#f9e7ed}.nova-card{max-width:800px;margin:50px auto 0;padding:45px;background:#fff;border-radius:32px;box-shadow:0 20px 60px rgba(75,35,50,.09)}
+.nova-card h3{font-size:34px;margin-bottom:15px}.nova-card p{line-height:1.8;font-size:18px}
+.story{background:#fff8fa}.timeline{margin-top:60px;display:grid;gap:25px}.timeline-card{background:#fff;padding:34px;border-radius:28px;text-align:left;box-shadow:0 15px 45px rgba(70,35,45,.07);transition:.3s}
+.timeline-card:hover{transform:translateY(-5px)}.timeline-number{font-size:12px;font-weight:700;letter-spacing:3px;opacity:.45}.timeline-card h3{margin:10px 0;font-size:29px}.timeline-card p{line-height:1.8}
+.science{background:#f8e5ec}.stats{margin-top:55px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.stat{padding:34px;border-radius:28px;background:rgba(255,255,255,.8);transition:.25s}
+.stat:hover{transform:scale(1.025)}.stat-number{font-family:"Playfair Display",serif;font-size:50px;font-weight:700}.stat p{margin-top:9px;line-height:1.5}
+.meter{margin:45px auto 0;max-width:600px;text-align:left}.meter-label{display:flex;justify-content:space-between;font-weight:700;margin-bottom:10px}.meter-track{height:18px;border-radius:30px;background:rgba(255,255,255,.65);overflow:hidden}.meter-fill{height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,#de8ba4,#a84f70);transition:width 2s ease}.meter.active .meter-fill{width:100%}
+.gallery{background:#fff}.photo-grid{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.photo{position:relative;overflow:hidden;border-radius:23px;aspect-ratio:1;background:#eee}.photo.big{grid-column:span 2;grid-row:span 2}.photo img{width:100%;height:100%;object-fit:cover;transition:.6s}.photo:hover img{transform:scale(1.07)}
+.caption{position:absolute;left:12px;right:12px;bottom:12px;padding:10px 14px;border-radius:15px;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);font-size:13px;font-weight:600}
+.video-section{background:#2c2024;color:#fff}.video-wrapper{max-width:860px;margin:50px auto 0;border-radius:26px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35)}video{width:100%;display:block}
+.japan{background:linear-gradient(rgba(255,232,239,.7),rgba(255,248,250,.94)),url("photos/japan.jpg") center/cover}.japan-content{max-width:780px}.japan h2{font-size:clamp(3.5rem,8vw,7rem);margin-bottom:30px}.japan p{font-size:20px;line-height:1.9;margin-bottom:20px}
+.bucket{background:#fff}.bucket-list{max-width:650px;margin:45px auto 0;display:grid;gap:14px;text-align:left}.bucket-item{padding:18px 22px;background:#fff5f8;border-radius:18px;font-size:17px;transition:.25s}.bucket-item:hover{transform:translateX(8px)}
+.letter{background:#fff}.letter-box{max-width:780px;margin:50px auto 0;padding:52px;border-radius:32px;text-align:left;background:#fff7f9;box-shadow:0 18px 55px rgba(70,35,45,.08)}.letter-box p{font-family:"Playfair Display",serif;font-size:20px;line-height:1.9;margin-bottom:25px}
+.before-proposal{min-height:75vh;background:#39272d;color:#fff}.before-proposal h2{font-size:clamp(3rem,7vw,6rem);margin-bottom:25px}
+.proposal{background:radial-gradient(circle at top,#f4cad7,transparent 52%),#fff8fa}.ring{font-size:90px;margin-bottom:20px;animation:ringFloat 2s ease-in-out infinite}
+@keyframes ringFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-18px) rotate(5deg)}}.proposal h2{font-size:clamp(4rem,10vw,8rem);line-height:.95;margin-bottom:30px}.proposal-buttons{margin-top:35px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap}.yes-button{background:#39272d;color:#fff}.wait-button{background:#edced8;color:#39272d}
+.wait-message{display:none;margin:25px auto 0;max-width:600px;padding:18px;border-radius:18px;background:#fff;line-height:1.6;box-shadow:0 10px 30px rgba(0,0,0,.07)}.wait-message.show{display:block}
+.final{display:none;min-height:100vh;background:radial-gradient(circle at top,#694152,transparent 55%),#2d1e23;color:#fff}.final.show{display:flex}.final h2{font-size:clamp(4rem,9vw,7rem);margin-bottom:20px}.final p{font-size:20px;line-height:1.8}.final-animals{display:flex;align-items:flex-end;justify-content:center;gap:40px;margin-bottom:25px}.final-animals img{width:145px}
+.confetti{position:fixed;z-index:9999;pointer-events:none;top:-40px}
+@media(max-width:750px){section{padding:80px 6%}.animal img{width:85px}.animal-small img{width:70px}.speech{font-size:11px;max-width:145px}.hero-nova-speech{left:3%;bottom:20%}.hero-cat-speech{right:3%;bottom:20%}.stats{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr 1fr}.photo.big{grid-column:span 2;grid-row:span 1}.letter-box{padding:30px}.final-animals img{width:95px}}
+.pet-dialogue {
+    margin-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pet-line {
+    width: fit-content;
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.pet-line strong {
+    margin-right: 5px;
+}
+
+.nova-line {
+    background: #f3e9ec;
+    align-self: flex-start;
+}
+
+.cat-line {
+    background: #f8f0d9;
+    align-self: flex-end;
+}
+/* =========================================================
+   INTRO / MUSIC UNLOCK SCREEN
+========================================================= */
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: radial-gradient(circle at center, #fff8fa 0%, #f9dce5 55%, #efc5d2 100%);
+    transition: opacity .9s ease, visibility .9s ease;
+}
+.intro-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.intro-content {
+    width: min(650px, 100%);
+    text-align: center;
+}
+.intro-nova-image img {
+    width: 150px;
+    max-width: 42vw;
+    height: auto;
+    animation: introNovaBounce 1.3s ease-in-out infinite;
+}
+@keyframes introNovaBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+.intro-small {
+    margin-top: 14px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: .6;
+}
+.intro-content h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    line-height: .95;
+    margin-bottom: 24px;
+}
+.intro-message {
+    max-width: 560px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.8;
+}
+.intro-button {
+    margin-top: 32px;
+    border: none;
+    background: #39272d;
+    color: #fff;
+    padding: 17px 32px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+.intro-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(57,39,45,.2);
+}
+.intro-warning {
+    margin-top: 20px;
+    font-size: 18px;
+    opacity: .58;
+}
+.main-website {
+    opacity: 0;
+    transition: opacity 1.15s ease;
+}
+.main-website.started {
+    opacity: 1;
+}
+.music-toggle {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 9998;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(57,39,45,.92);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(57,39,45,.22);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.music-toggle.show { display: flex; }
+.music-toggle:hover { transform: translateY(-2px); }
+
+@media(max-width:750px) {
+    .intro-message { font-size: 16px; }
+    .intro-nova-image img { width: 120px; }
+    .music-toggle {
+        right: 12px;
+        bottom: 12px;
+        width: 44px;
+        height: 44px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<audio id="backgroundMusic" loop preload="auto">
+  <source src="audio/our-song.mp3" type="audio/mpeg">
+</audio>
+
+<div id="introScreen" class="intro-screen">
+  <div class="intro-content">
+    <div class="intro-nova-image">
+      <img src="animals/sus.jpg" alt="Nova">
+    </div>
+    <p class="intro-small">Detected a very important visitor...</p>
+    <h1>Apoorva? 👀</h1>
+    <p class="intro-message">
+      This page contains something suspicious.
+    </p>
+    <button id="startWebsite" class="intro-button" type="button">
+      Fine, let me in 🙄
+    </button>
+    <div class="intro-nova-image">
+      <img src="animals/volume.png" alt="Nova">
+    </div>
+    <p class="intro-warning">🔊 Turn on volume</p>
+  </div>
+</div>
+
+<button id="musicToggle" class="music-toggle" type="button" aria-label="Pause background music" title="Pause music">
+  🔊
+</button>
+
+<div id="mainWebsite" class="main-website">
+
+
+<section class="hero">
+  <div class="animal hero-nova bounce"><img src="animals/nova-wave.gif" alt="Nova"></div>
+  <div class="speech hero-nova-speech"><strong>Nova:</strong>Psst... you're finally here! 🐾</div>
+  <div class="animal hero-cat float"><img src="animals/cat-serious.gif" alt="Cute cat"></div>
+  <div class="speech hero-cat-speech"><strong>Cat:</strong>I've been waiting for her longer than he has. 😼</div>
+  <div class="container hero-content reveal">
+    <div class="section-label">A VERY IMPORTANT Page 🌸</div>
+    <h1>Hey, Apoorva, Shikhar this side.</h1>
+    <div class="hero-text">
+      <p>Apparently saying something important normally was too easy...</p>
+      <p style="margin-top:12px">So I decided to make you an entire website instead, It has our story, some questionable jokes, too many cute photos and one question I've been wanting to ask you. ❤️</p>
+    </div>
+    <a href="#nova-intro" class="button start-button">Okay... show me👀</a>
+  </div>
+</section>
+
+<section class="nova-intro" id="nova-intro">
+  <div class="animal bounce" style="right:5%;bottom:8%;"><img src="animals/nova-sit.gif" alt="Nova"></div>
+  <div class="container reveal">
+    <div class="section-label">IMPORTANT ANNOUNCEMENT</div>
+    <h2 class="section-title">First, meet your tour guide.</h2>
+    <div class="nova-card">
+      <h3>🐾 Nova</h3>
+      <p>Black dog. Professional good boy. Part-time relationship advisor.</p>
+      <p style="margin-top:18px;">Nova has carefully inspected this website and has agreed to supervise today's proceedings.</p>
+      <p style="margin-top:18px;">His qualifications include being adorable, demanding attention/SNACKS, and somehow knowing that this is a very important day.</p>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="animal peek-right animal-small" style="top:12%;"><img src="animals/cat-peek.gif" alt=""></div>
+  <div class="container reveal">
+    <div class="section-label">CHAPTER ONE — 24 MAY</div>
+    <h2 class="section-title">It started with a chat.</h2>
+    <p class="description">Somewhere between the conversations, the laughs, the random moments and everything we never planned... something pretty special happened.</p>
+    <div class="timeline">
+      <div class="timeline-card">
+        <div class="timeline-number">01 — HOW IT STARTED</div>
+        <h3>Once upon a completely normal day...</h3>
+        <p><strong></strong> 24th May.
+
+          Just a normal day.
+          
+          A conversation started between two people who probably had no idea where it was going to lead.
+          
+          We chatted...
+          
+          then came our first call.
+          
+          And somewhere between talking about random things, sharing experiences and listening to you explain your thoughts in your own way...
+          
+          I started enjoying talking to you more than I expected.
+          
+          I especially remember liking your voice.
+          
+          There was something about listening to you talk the way you explained things, shared your experiences and somehow made normal conversations interesting.
+          
+          At that point, I obviously didn't know I'd eventually be making an entire website for you.
+          
+          Life escalated quickly. 😂</p>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-number">02 — THE PLOT THICKENS</div>
+        <h3>You became my favourite notification.</h3>
+        <p>You had gone to meet your medical friends.
+
+          And later, we ended up talking late into the night.
+          
+          There was nothing dramatic about it.
+          
+          It was simply one of those conversations that felt easy.
+          
+          The kind where you don't really notice how much time has passed.
+          
+          And I think those were the moments where I slowly started realizing...
+          
+          I genuinely liked talking to you.
+          
+          Not because I had to.
+          
+          Because I wanted to. Somewhere along the way, talking to you stopped being just another part of the day... and became the part I looked forward to.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-number">03 — CURRENT SITUATION</div>
+        <h3>And now I'm making websites for you.</h3>
+        <p>Somehow, our alternate-day calls became a thing that i broke most of the times 😈.
+
+          And somewhere along the way...
+          
+          this message became part of my vocabulary:
+          
+          “Free hojao to lga lena.” 😂
+          
+          It looked like such a simple message.
+          
+          But what it actually meant was:
+          
+          “I want to talk to you, but I'll pretend I'm being very casual about it.” 😌
+          
+          Every time I sent it, I was secretly hoping you'd actually call.
+          Which is either extremely romantic or evidence that I've completely lost it. I'm choosing romantic.</p>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-number">🎬 Opposites, Apparently</div>
+        <h3>Romance vs Horror.</h3>
+        <p>You like romantic movies. ❤️
+
+          I like horror movies. 👻
+          
+          Which means our future movie nights are already perfectly planned:
+          
+          You choose something romantic.
+          
+          I suggest something terrifying.
+          
+          We spend 30 minutes arguing.
+          
+          And eventually watch whatever you wanted anyway. 😂</p>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-number">🏋️ Fitness Department</div>
+        <h3>BaaadyBuilder</h3>
+        <p>You go to the gym regularly.
+
+          You actually understand this strange concept called consistency.
+          
+          Meanwhile, I am still impressed that people voluntarily choose to do leg day.
+          
+          But I genuinely like how seriously you take your fitness.
+          
+          Your discipline, your routine, and the way you take care of yourself...
+          
+          it's one of those little things about you that I admire.</p>
+          <div class="pet-dialogue">
+            <div class="pet-line nova-line">
+              <strong>Nova:</strong>
+              <span>“I also exercise.” 🐾</span>
+            </div>
+        
+            <div class="pet-line cat-line">
+              <strong>Cat:</strong>
+              <span>“Running toward food doesn't count.” 😼</span>
+            </div>
+          </div>
+      </div>
+      <div class="timeline-card">
+        <div class="timeline-number">A CONFESSION</div>
+        <h3>I didn't say this properly then.</h3>
+        <p>When you gave me those gifts...
+
+          I was genuinely very happy.
+          
+          Probably much happier than I managed to show at that moment.
+          
+          I'm not always the best at immediately expressing what I'm feeling.
+          
+          Sometimes I realize later how much a moment meant to me.
+          
+          And that was one of those moments.
+          
+          It wasn't only about the gifts.
+          
+          It was the thought behind them.
+          
+          Knowing that you had thought about me enough to choose something for me...
+          
+          made me feel really special.
+          
+          I just wish I had expressed that better then.
+          
+          So I'm saying it properly now:
+          
+          Thank you, Puchchu. ❤️
+          
+          I really, really loved it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="science" id="science">
+  <div class="animal float" style="right:5%;top:10%;"><img src="animals/cat-serious.gif" alt=""></div>
+  <div class="speech" style="right:5%;top:27%;"><strong>Cat:</strong>He can't do maths.</div>
+  <div class="animal bounce" style="left:5%;bottom:7%;"><img src="animals/nova-wave.gif" alt="Nova"></div>
+  <div class="speech" style="left:5%;bottom:25%;"><strong>Nova:</strong>The maths is correct.🐾</div>
+  <div class="container reveal">
+    <div class="section-label">PEER-REVIEWED RESEARCH*</div>
+    <h2 class="section-title">The Relationship Report 🧪</h2>
+    <p class="description">*The research was reviewed by one dog and one suspicious cat.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-number">99.9%</div><p>Probability of laughing at something nobody else finds funny.</p></div>
+      <div class="stat"><div class="stat-number">87%</div><p>Chance of us taking forever to decide what to watch.</p></div>
+      <div class="stat"><div class="stat-number">100%</div><p>Probability of me continuing to annoy you.</p></div>
+      <div class="stat"><div class="stat-number">∞</div><p>Memories we haven't made yet.</p></div>
+    </div>
+    <div class="meter" id="novaMeter">
+      <div class="meter-label"><span>Nova and Cat Relationship Approval</span><span>100%</span></div>
+      <div class="meter-track"><div class="meter-fill"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="container reveal">
+    <div class="section-label">EVIDENCE EXHIBIT A</div>
+    <h2 class="section-title">We take an unreasonable number of cute photos. 📸</h2>
+    <p class="description">A few moments I wouldn't trade for anything.</p>
+    <div class="photo-grid">
+      <div class="photo big"><img src="photos/together.jpg" alt="Us together"><div class="caption">Exhibit A: pretty cute, your honour.</div></div>
+      <div class="photo"><img src="photos/photo1.png" alt=""><div class="caption">Another favourite ❤️</div></div>
+      <div class="photo"><img src="photos/photo2.png" alt=""><div class="caption">No explanation required.</div></div>
+      <div class="photo"><img src="photos/photo3.png" alt=""><div class="caption">I'd keep this day.</div></div>
+      <div class="photo"><img src="photos/photo4.png" alt=""><div class="caption">Definitely keeping you too.</div></div>
+    </div>
+  </div>
+  <div class="animal peek-right" style="bottom:4%;"><img src="animals/cat-peek.gif" alt=""></div>
+</section>
+
+<section class="video-section">
+  <div class="animal sleep" style="left:4%;bottom:7%;"><img src="animals/cat-sleep.gif" alt=""></div>
+  <div class="speech" style="left:4%;bottom:25%;color:black;">
+    <strong>Cat:</strong>Wake me up if he cries.
+</div>  <div class="animal bounce" style="right:4%;top:10%;"><img src="animals/nova-wave.gif" alt="Nova"></div>
+  <div class="container reveal">
+    <div class="section-label">PRESS PLAY 🎬</div>
+    <h2 class="section-title">Some things are better shown.</h2>
+    <div class="video-wrapper">
+      <video controls playsinline>
+        <source src="video/our-video.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="japan">
+  <div class="animal nova-run" style="bottom:5%;"><img src="animals/nova-run.gif" alt="Nova running"></div>
+  <div class="animal cat-walk animal-small" style="bottom:5%;"><img src="animals/cat-peek.gif" alt=""></div>
+  <div class="container japan-content reveal">
+    <div class="section-label">ONE DAY... 🇯🇵</div>
+    <h2>Imagine this.</h2>
+    <p>Japan.</p>
+    <p>Cherry blossoms everywhere.</p>
+    <p>You and me walking through beautiful little streets, taking way too many photos...</p>
+    <p>probably getting lost.</p>
+    <p>And somehow... I'd still be exactly where I wanted to be.</p>
+  </div>
+</section>
+
+<section class="bucket">
+  <div class="animal bounce" style="right:5%;bottom:8%;"><img src="animals/nova-sit.gif" alt="Nova"></div>
+  <div class="container reveal">
+    <div class="section-label">ONE DAY...</div>
+    <h2 class="section-title">Imagine this.</h2>
+    <div class="bucket-list">
+      <div class="bucket-item">✅ You and me.</div>
+      <div class="bucket-item">✅ Somewhere beautiful.</div>
+      <div class="bucket-item">✅ Take approximately 8,472 photos</div>
+      <div class="bucket-item">✅ Eat way too much food</div>
+      <div class="bucket-item">✅ laughing about random things...</div>
+      <div class="bucket-item">✅ we'll be tired, happy and full of stories.</div>
+      <div class="bucket-item">✅ Get lost at least once</div>
+      <div class="bucket-item">⏳ Make a lifetime of memories</div>
+    </div>
+  </div>
+</section>
+
+<section class="letter">
+  <div class="animal sleep animal-small" style="right:4%;bottom:7%;"><img src="animals/nova-sleep.gif" alt="Nova sleeping"></div>
+  <div class="container reveal">
+    <div class="section-label">OKAY. NO MORE JOKES FOR A MINUTE.</div>
+    <h2 class="section-title">This part is just for you.</h2>
+    <div class="letter-box">
+      Puchchu,
+
+When we first started talking on 24th May, I obviously didn't know where any of this would go.
+
+It started with conversations.
+
+Then calls.
+
+Then late-night talks.
+
+Then our alternate-day routine.
+
+Then somehow, meeting you became something I looked forward to.
+
+And slowly...
+
+you started becoming important to me.
+
+I like your voice.
+
+I like listening to the way you explain your thoughts.
+
+I like hearing your experiences.
+
+I like your funny side.
+
+I admire your discipline and the effort you put into things that matter to you.
+
+And I love how comfortable it has started feeling to simply talk to you.
+
+There are also moments where I probably don't express myself as much as I should.
+
+Like when you gave me those gifts.
+
+I was genuinely so happy.
+
+I just couldn't show you properly at that moment how much it meant to me.
+
+But that's something I want you to know about me too...
+
+Even when I don't immediately say everything I'm feeling, the little things you do matter to me.
+
+A lot.
+
+Our first meeting on 25th July is something I'll always remember.
+
+I was nervous.
+
+I wasn't even sure you'd want to meet me again the next day. 😅
+
+And now...
+
+here I am.
+
+Making a website.
+
+Writing paragraphs.
+
+Recruiting Nova.
+
+Apparently even hiring a sarcastic cat.
+
+All because somewhere between 24th May and today...
+
+you became someone I don't just want to make memories with.
+
+You became someone I want to build a life with.
+    </div>
+  </div>
+</section>
+
+<section class="before-proposal">
+  <div class="container reveal">
+    <div class="section-label">AND NOW...</div>
+    <h2>Nova has something for you.</h2>
+    <p class="description">Apparently he insisted on handling the most important part himself.</p>
+  </div>
+  <div class="animal nova-run" style="bottom:5%;"><img src="animals/nova-ring.jpg" alt="Nova bringing something"></div>
+</section>
+
+<section class="proposal">
+  <div class="animal bounce" style="right:5%;bottom:8%;"><img src="animals/nova-ring.jpg" alt="Nova carrying the ring"></div>
+  <div class="speech" style="right:5%;bottom:28%;"><strong>Nova:</strong>DELIVERY!!! 💍</div>
+  <div class="animal float animal-small" style="left:5%;bottom:9%;"><img src="animals/cat-serious.gif" alt=""></div>
+  <div class="speech" style="left:5%;bottom:28%;"><strong>Cat:</strong>Finally. Took him long enough.</div>
+  <div class="container reveal">
+    <div class="ring">💍</div>
+    <div class="section-label">ONE VERY IMPORTANT QUESTION</div>
+    <h2>Will you marry me?</h2>
+    <p class="description">And make all those future memories with me?</p>
+    <div class="proposal-buttons">
+      <button class="button yes-button" onclick="sayYes()">YES ❤️</button>
+      <button class="button wait-button" onclick="needSecond()">Give me a second 😳</button>
+    </div>
+    <div class="wait-message" id="waitMessage">
+      Take all the time you need. ❤️
+      <br><br>
+      <strong>Nova:</strong> I'll just sit here very normally and definitely not stare at you. 👀
+    </div>
+  </div>
+</section>
+
+<section class="final" id="final">
+  <div class="container">
+    <div class="final-animals">
+      <div class="celebrate"><img src="animals/nova-celebrate.gif" alt="Nova celebrating"></div>
+      <div style="font-size:70px;">❤️</div>
+      <div class="celebrate"><img src="animals/cat-celebrate.gif" alt="Cat celebrating"></div>
+    </div>
+    <div class="section-label">NOVA HAS CONFIRMED THE RESULT</div>
+    <h2>SHE SAID YES! 🌸</h2>
+    <p>Nova knew it.</p>
+    <p style="margin-top:10px;">The cat claims she also knew it.</p>
+    <p style="margin-top:30px;">And I just became the luckiest person in the room.</p>
+    <p style="margin-top:35px;"><strong>Here's to our next chapter. ❤️</strong></p>
+  </div>
+</section>
+
+</div>
+
+<script>
+
+const introScreen = document.getElementById("introScreen");
+const mainWebsite = document.getElementById("mainWebsite");
+const startWebsite = document.getElementById("startWebsite");
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+let websiteStarted = false;
+
+startWebsite.addEventListener("click", async () => {
+  if (websiteStarted) return;
+  websiteStarted = true;
+
+  mainWebsite.classList.add("started");
+  introScreen.classList.add("hide");
+  musicToggle.classList.add("show");
+
+  backgroundMusic.volume = 0.35;
+
+  try {
+    await backgroundMusic.play();
+    musicToggle.textContent = "🔊";
+    musicToggle.setAttribute("aria-label", "Pause background music");
+    musicToggle.title = "Pause music";
+  } catch (error) {
+    console.log("Background music could not start:", error);
+    musicToggle.textContent = "🔇";
+    musicToggle.setAttribute("aria-label", "Play background music");
+    musicToggle.title = "Play music";
+  }
+
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, 150);
+});
+
+musicToggle.addEventListener("click", async () => {
+  if (backgroundMusic.paused) {
+    try {
+      await backgroundMusic.play();
+      musicToggle.textContent = "🔊";
+      musicToggle.setAttribute("aria-label", "Pause background music");
+      musicToggle.title = "Pause music";
+    } catch (error) {
+      console.log("Background music could not resume:", error);
+    }
+  } else {
+    backgroundMusic.pause();
+    musicToggle.textContent = "🔇";
+    musicToggle.setAttribute("aria-label", "Play background music");
+    musicToggle.title = "Play music";
+  }
+});
+
+const revealElements=document.querySelectorAll(".reveal");
+const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add("visible");});
+},{threshold:.15});
+revealElements.forEach(el=>revealObserver.observe(el));
+
+const novaMeter=document.getElementById("novaMeter");
+const meterObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)novaMeter.classList.add("active");});
+},{threshold:.6});
+meterObserver.observe(novaMeter);
+
+function createPetal(){
+  const petal=document.createElement("div");
+  petal.className="petal";
+  petal.textContent="🌸";
+  petal.style.left=Math.random()*100+"vw";
+  petal.style.fontSize=(Math.random()*10+10)+"px";
+  petal.style.animationDuration=(Math.random()*5+6)+"s";
+  document.body.appendChild(petal);
+  setTimeout(()=>petal.remove(),12000);
+}
+setInterval(createPetal,700);
+
+function needSecond(){
+  document.getElementById("waitMessage").classList.add("show");
+}
+
+function sayYes(){
+  const final=document.getElementById("final");
+  final.classList.add("show");
+  final.scrollIntoView({behavior:"smooth"});
+  confettiExplosion();
+  heartExplosion();
+}
+
+function confettiExplosion(){
+  const symbols=["❤️","🌸","💕","✨","💍","🐾"];
+  for(let i=0;i<100;i++){
+    const item=document.createElement("div");
+    item.className="confetti";
+    item.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    item.style.left=Math.random()*100+"vw";
+    item.style.fontSize=(Math.random()*17+13)+"px";
+    document.body.appendChild(item);
+    const duration=Math.random()*3000+3500;
+    item.animate([
+      {transform:"translateY(0) rotate(0deg)",opacity:1},
+      {transform:"translateY(110vh) rotate(720deg)",opacity:0}
+    ],{duration,easing:"ease-out"});
+    setTimeout(()=>item.remove(),duration);
+  }
+}
+
+function heartExplosion(){
+  const symbols=["❤️","💕","💗","💖","🌸"];
+  for(let i=0;i<35;i++){
+    const heart=document.createElement("div");
+    heart.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    heart.style.position="fixed";
+    heart.style.left="50%";
+    heart.style.top="50%";
+    heart.style.zIndex="10000";
+    heart.style.pointerEvents="none";
+    heart.style.fontSize="26px";
+    document.body.appendChild(heart);
+    const angle=Math.random()*Math.PI*2;
+    const distance=Math.random()*350+120;
+    const x=Math.cos(angle)*distance;
+    const y=Math.sin(angle)*distance;
+    heart.animate([
+      {transform:"translate(-50%,-50%) scale(.3)",opacity:1},
+      {transform:`translate(calc(-50% + ${x}px),calc(-50% + ${y}px)) scale(1.5)`,opacity:0}
+    ],{duration:1300+Math.random()*700,easing:"cubic-bezier(.17,.67,.32,1.2)"});
+    setTimeout(()=>heart.remove(),2300);
+  }
+}
+</script>
+</body>
+</html>
