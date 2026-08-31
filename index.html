@@ -1270,6 +1270,92 @@ You became someone I want to build a life with.
 
 <script>
 
+
+/* =========================================================
+   PASSWORD ATTEMPT EMAIL ALERTS — FORMSPREE
+   Sends an email/log for every non-empty passcode attempt.
+   The typed password itself is NEVER sent.
+========================================================= */
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvkoznly";
+
+function getDeviceType() {
+  const ua = navigator.userAgent || "";
+  if (/ipad|tablet/i.test(ua)) return "Tablet";
+  if (/mobi|android|iphone/i.test(ua)) return "Mobile";
+  return "Desktop / Laptop";
+}
+
+function getBrowserName() {
+  const ua = navigator.userAgent || "";
+
+  if (/Edg\//.test(ua)) return "Microsoft Edge";
+  if (/OPR\//.test(ua) || /Opera/.test(ua)) return "Opera";
+  if (/CriOS\//.test(ua)) return "Chrome on iOS";
+  if (/Chrome\//.test(ua) && !/Edg\//.test(ua)) return "Google Chrome";
+  if (/FxiOS\//.test(ua)) return "Firefox on iOS";
+  if (/Firefox\//.test(ua)) return "Mozilla Firefox";
+  if (/Safari\//.test(ua) && !/Chrome\//.test(ua) && !/CriOS\//.test(ua)) return "Safari";
+
+  return "Unknown browser";
+}
+
+function getOSName() {
+  const ua = navigator.userAgent || "";
+
+  if (/iPhone|iPad|iPod/.test(ua)) return "iOS / iPadOS";
+  if (/Android/.test(ua)) return "Android";
+  if (/Windows NT/.test(ua)) return "Windows";
+  if (/Mac OS X/.test(ua)) return "macOS";
+  if (/Linux/.test(ua)) return "Linux";
+
+  return "Unknown OS";
+}
+
+async function sendPasswordAttemptEmail(result, attemptNumber) {
+  const timezone =
+    Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown timezone";
+
+  const eventData = {
+    event: "Project Nova Password Attempt",
+    result: result,
+    attempt_number: attemptNumber,
+    time_local: new Date().toLocaleString(),
+    time_iso: new Date().toISOString(),
+    device_type: getDeviceType(),
+    browser: getBrowserName(),
+    operating_system: getOSName(),
+    screen_size: `${window.screen.width} x ${window.screen.height}`,
+    viewport_size: `${window.innerWidth} x ${window.innerHeight}`,
+    timezone: timezone,
+    language: navigator.language || "Unknown",
+    page_url: window.location.href,
+    referrer: document.referrer || "Direct / none",
+    user_agent: navigator.userAgent || "Unavailable",
+    _subject:
+      result === "CORRECT"
+        ? "❤️ Project Nova — CORRECT password"
+        : "🐾 Project Nova — WRONG password"
+  };
+
+  try {
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(eventData)
+    });
+
+    if (!response.ok) {
+      console.warn("Formspree alert failed:", response.status);
+    }
+  } catch (error) {
+    // Never let logging failure stop the proposal website.
+    console.warn("Could not send Formspree alert:", error);
+  }
+}
+
 const introScreen = document.getElementById("introScreen");
 const mainWebsite = document.getElementById("mainWebsite");
 const startWebsite = document.getElementById("startWebsite");
@@ -1311,6 +1397,7 @@ async function unlockWebsite() {
 
   if (enteredHash !== SECRET_HASH) {
     wrongAttempts++;
+    sendPasswordAttemptEmail("WRONG", wrongAttempts);
     const funnyErrors = [
       "Nova: Suspicious. Very suspicious. 🐾",
       "Cat: That's not it. Nova, do your job. 😼",
@@ -1328,6 +1415,7 @@ async function unlockWebsite() {
   }
 
   websiteStarted = true;
+  sendPasswordAttemptEmail("CORRECT", wrongAttempts + 1);
   passcodeError.textContent = "Nova: Identity confirmed. That's definitely Puchchu. ❤️";
   startWebsite.textContent = "Approved! ❤️";
 
